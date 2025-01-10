@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tight Lipped Resource Guide</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<section class="spotlight style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<a href= '/'>
+                                <h1>Tight Lipped Resource Guide</h1>
+                            </a>
+						</div>
+						<div class="image">
+							<img src="images/banner.jpg" alt="" />
+						</div>
+					</section>
+
+			
+
+				<!-- Five -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<h2>General Info on Vulvovaginal and Pelvic Pain Conditions</h2>
+							<p><%= resourcesDB[resourcesDB.length-1]['General Info about Vulvovaginal and Pelvic Pain Conditions']%></p>
+                            <ul class="actions stacked">
+								<% for(let i = 0; i<resourcesDB.length-1; i++) { %>
+									<% if (resourcesDB[i]['General Info about Vulvovaginal and Pelvic Pain Conditions']) { %>
+										<li>
+											<a href="<%= resourcesDB[i]['general info link']%>" class="button btnCustom" target="_blank"><%= resourcesDB[i]['General Info about Vulvovaginal and Pelvic Pain Conditions']%></a>
+											<% if (resourcesDB[i]['general info notes']) { %>
+												<a href="<%= resourcesDB[i]['general info notes link']%>" class="button btnCustom" target="_blank"><%= resourcesDB[i]['general info notes']%></a>
+											<% } %>
+										</li> 
+									<% } %>
+								<% } %>
+							</ul>
+                        </div>
+				
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://x.com/tightlippedorg" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/tightlippedorg/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/tightlippedorg/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://www.linkedin.com/company/tight-lipped/" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="info@tightlipped.org" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>Programming: Nancy Hunter. Design: @ajlkn HTML5 UP</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script src="/js/jquery.scrolly.min.js"></script>
+			<script src="/js/browser.min.js"></script>
+			<script src="/js/breakpoints.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>

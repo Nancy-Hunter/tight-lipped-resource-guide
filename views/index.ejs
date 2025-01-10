@@ -8,7 +8,7 @@
 		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		<% console.log(resourcesDB) %>
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
@@ -16,7 +16,7 @@
 					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 						<div class="content">
 							<h1>Tight Lipped Resource Guide</h1>
-							<p class="major">Tight Lipped is a grassroots advocacy organization by and for people with chronic vulvovaginal and pelvic pain conditions. Interested in getting involved? Check out our materials below. </p>
+							<p class="major"><%= aboutTightLippedDB[aboutTightLippedDB.length-1]['resource']%></p>
 						</div>
 						<div class="image">
 							<img src="images/banner.jpg" alt="" />
@@ -28,11 +28,12 @@
 						<div class="content">
 							<h2>About Tight Lipped</h2>
 							<p>Learn more about our Advocacy</p>
-							<p><%console.log('hi')%></p>
 							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
-								<li><a href="#" class="button">Learn More</a></li>
-								<li><a href="#" class="button">Learn More</a></li>
+								<% for(let i = 0; i<aboutTightLippedDB.length-1; i++) { %>
+									<li>
+										<a href="<%= aboutTightLippedDB[i]['link']%>" class="button" target="blank"><%= aboutTightLippedDB[i]['resource']%></a>
+									</li>
+								<% } %>
 							</ul>
 						</div>
 						<div class="image">
@@ -43,10 +44,10 @@
 				<!-- Three -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
-							<h2>Tempus adipiscing</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
+							<h2>Find A Provider Now</h2>
+							<p><%= findAProviderDB[findAProviderDB.length-1]['Database']%></p>
 							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="/providers" class="button">Learn More</a></li>
 							</ul>
 						</div>
 						<div class="image">
@@ -57,10 +58,10 @@
 				<!-- Four -->
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
-							<h2>Pharetra etiam nulla</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
+							<h2>General Info on Vulvovaginal and Pelvic Pain Conditions</h2>
+							<p><%= resourcesDB[resourcesDB.length-1]['General Info about Vulvovaginal and Pelvic Pain Conditions']%></p>
 							<ul class="actions stacked">
-								<li><a href="#" class="button">Learn More</a></li>
+								<li><a href="/generalInfo" class="button">Learn More</a></li>
 							</ul>
 						</div>
 						<div class="image">
@@ -71,8 +72,11 @@
 				<!-- Five -->
 					<section class="wrapper style1 align-center">
 						<div class="inner">
-							<h2>Massa sed condimentum</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+							<h2>You Are Not Alone</h2>
+							<p>Find Support in the Community</p>
+							<ul class="actions stacked">
+								<li><a href="/generalInfo" class="button">Learn More</a></li>
+							</ul>
 						</div>
 
 						<!-- Gallery -->
@@ -228,68 +232,143 @@
 				<!-- Six -->
 					<section class="wrapper style1 align-center">
 						<div class="inner">
-							<h2>Ipsum sed consequat</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+							<h2>Conditions</h2>
+							<p>Look up the condition you have been diagnosed with below. This is not a comprehensive list of symptoms, some symptoms may be unique to certain individuals. We always recommend seeing a specialist if possible. If you don't yet have a diagnosis, we recommend trying to find a medical provider who can give you an accurate diagnosis -- this has made an enormous difference for many of our community members who have been misdiagnosed or treated for the wrong condition!</p>
+							<p>This guide has been fact-checked by members of Tight Lipped's Medical Advisory Board.</p>
 							<div class="items style1 medium onscroll-fade-in">
 								<section>
-									<span class="icon style2 major fa-gem"></span>
-									<h3>Lorem</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon style2 major fa-sun"></span>
+									<h3>Endometriosis</h3>
+									<p>Pain in the pelvis, abdomen, and/or lower back. Most commonly during menstruation, but can occur at other times.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.pelvicpain.org/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=50&id=20&Itemid=1000000000000" class="button btnCustom" target="blank">International Pelvic Pain Society</a>
+										</li>
+										<li>
+											<a href="https://www.mayoclinic.org/diseases-conditions/endometriosis/symptoms-causes/syc-20354656#:~:text=Endometriosis%20(en%2Ddoe%2Dme,the%20tissue%20lining%20your%20pelvis." class="button btnCustom" target="blank">Mayo Clinic</a>
+										</li>
+										<li>
+											<a href="https://vulvodynia.com/conditions/endometriosis" class="button btnCustom" target="blank">Center for Vulvovaginal Disorders</a>
+										</li>
+										<li>
+											<a href="https://www.endowhat.com/educate/" class="button btnCustom" target="blank">Endo What</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-save"></span>
-									<h3>Ipsum</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-water"></span>
+									<h3>Interstitial Cystitis/Bladder Pain Syndrome</h3>
+									<p>Pelvic pain and pressure. Usually feeling the need to urinate often, waking from sleep to urinate, UTI-like symptoms, painful sexual intercourse, and feeling like the bladder is never empty.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.pelvicpain.org/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=50&id=14&Itemid=1000000000000" class="button btnCustom" target="blank">International Pelvic Pain Society</a>
+										</li>
+										<li>
+											<a href="https://www.pelvicpain.org/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=50&id=14&Itemid=1000000000000" 
+											class="button btnCustom" target="blank">American Urological Association</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-chart-bar"></span>
-									<h3>Dolor</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-bomb"></span>
+									<h3>Lichen Sclerosus</h3>
+									<p>Itchiness and urge to scratch. Skin may develop white patches around the vulva or anus. Skin may tear easily, bruise and even ulcerate. People may notice changes to the vulvar anatomy such as flattening of the folds of the skin and covering of the clitoris. May experience problems urinating or painful sex.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.issvd.org/resources/vulvar-lichen-sclerosus" class="button btnCustom" target="blank">ISSVD</a>
+										</li>
+										<li>
+											<a href="https://vulvodynia.com/conditions/lichen-sclerosus" 
+											class="button btnCustom" target="blank">Centers for Vulvovaginal Disorders</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-wifi"></span>
-									<h3>Amet</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-cloud"></span>
+									<h3>Myofascial Pelvic Pain</h3>
+									<p>A type of Pelvic Floor Dysfunction.  MPP is due to pelvic floor dysfunction leading to shortened tight and tender muscles commonly with trigger point (or knots). This can cause pelvic or back pain or spasms, bladder problems such as urgency, and leakage. Bowel issues such as constipation or painful bowel movements. Vulvar pain/heaviness or pain with vaginal insertion.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.pelvicpain.org/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=50&id=22&Itemid=1000000000000" target="blank" class="button btnCustom" >International Pelvic Pain Society</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-cog"></span>
-									<h3>Magna</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-smog"></span>
+									<h3>Pelvic Floor Dysfunction</h3>
+									<p>Pain in the lower abdomen, lower back, and pelvic region. Can also be accompanied by a "heaviness" and pressure of the vagina as well as vaginal insertion pain (pain with sex, tampons, etc). Urinary symptoms are also common: incontinence, increased urgency/frequency, and the feeling of incomplete emptying. Bowel symptoms are constipation, pain with defecation, and/or fecal incontinence. Pain can radiate to lower legs, hips, and lower abdomen.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.pelvicpain.org/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=50&id=22&Itemid=1000000000000" target="blank" class="button btnCustom" >International Pelvic Pain Society</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon style2 major fa-paper-plane"></span>
-									<h3>Tempus</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon style2 major fa-meh"></span>
+									<h3>Pudendal Neuralgia</h3>
+									<p>The pudendal nerve is a major nerve to the pelvic floor.  If this nerve is injured it may manifest as defecation and rectal pain, or as pain in the genitals.  Pain can be classified as stabbing, twisting, burning, pins and needles and numbness. Symptoms are often worse sitting down. Pain can radiate to inner thighs.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.pelvicpain.org/index.php?preview=1&option=com_dropfiles&format=&task=frontfile.download&catid=50&id=17&Itemid=1000000000000" class="button btnCustom" target="blank">International Pelvic Pain Society</a>
+										</li>
+										<li>
+											<a href="https://vulvodynia.com/conditions/pudendal-neuralgia" 
+											class="button btnCustom" target="blank">Centers for Vulvovaginal Disorders</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-desktop"></span>
-									<h3>Aliquam</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-hand-holding-heart"></span>
+									<h3>Vaginismus</h3>
+									<p>Also known as pelvic floor dysfunction. Can experience pain or feel like there is an obstruction inside the vagina with attempts at insertion into the vagina. Specific to pain inside of the vagina.  Can result in the involuntary contraction of pelvic floor muscles, often the ones at the entry of the vagina. May be accompanied by fear and anxiety about vaginal insertion.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.prosayla.com/articles/vaginismus" target="blank" class="button btnCustom">ISSWSH</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-sync-alt"></span>
-									<h3>Elit</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon solid style2 major fa-hashtag"></span>
-									<h3>Morbi</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-star-half"></span>
+									<h3>Vestibulodynia (Hormonally mediated)</h3>
+									<p>Pain at the vestibule (entrance of the vagina/inner side of the labia minora). Pain could be burning, stinging, or tearing. Pain may occur when provoked or spontanously. "Provoked" could be wearing tight clothing, wiping with toilet paper, vaginal insertion, speculum exams, and/or sitting for long periods of time. </p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.prosayla.com/articles/hormonally-mediated-vestibulodynia" target="blank" class="button btnCustom" >ISSWSH</a>
+										</li>
+									</ul>
 								</section>
 								<section>
 									<span class="icon solid style2 major fa-bolt"></span>
-									<h3>Turpis</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<h3>Vestibulodynia (Neuroproliferative)</h3>
+									<p>Similar pain as for hormonally mediated vestibulodynia PLUS may have "zapping" sensation from belly-button to vulva. Could experience pain from earliest memory or have developed at some point in life.</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.prosayla.com/articles/neuroproliferative-vestibulodynia" target="blank" class="button btnCustom" >ISSWSH</a>
+										</li>
+									</ul>
 								</section>
 								<section>
-									<span class="icon solid style2 major fa-envelope"></span>
-									<h3>Ultrices</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-								</section>
-								<section>
-									<span class="icon solid style2 major fa-leaf"></span>
-									<h3>Risus</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+									<span class="icon solid style2 major fa-fire"></span>
+									<h3>Vulvodynia</h3>
+									<p>Chronic pain around the vulva, could be at a specific site like the clitoris or generalized. Most commmonly, the pain is a burning sensation. Can be "provoked" or "spontanous".</p>
+									<p>More Info Below:</p>
+									<ul class="actions stacked">
+										<li>
+											<a href="https://www.nva.org/learnpatient/definition-and-types-of-vulvodynia/" class="button btnCustom" target="blank">National Vulvodynia Association</a>
+										</li>
+										<li>
+											<a href="https://vulvodynia.com/conditions/vulvodynia" target="blank" class="button btnCustom" >Centers for Vulvovaginal Disorders</a>
+										</li>
+									</ul>
 								</section>
 							</div>
 						</div>
@@ -326,21 +405,19 @@
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+								<li><a href="https://x.com/tightlippedorg" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/tightlippedorg/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/tightlippedorg/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://www.linkedin.com/company/tight-lipped/" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="info@tightlipped.org" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
-							<p>Nancy Hunter. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+							<p>Programming: Nancy Hunter. Design: @ajlkn HTML5 UP</p>
 						</div>
 					</footer>
 
 			</div>
 
 		<!-- Scripts -->
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-			<script type = 'module' src="/js/databaseParsing.js"></script>
 			<script src="/js/jquery.min.js"></script>
 			<script src="/js/jquery.scrollex.min.js"></script>
 			<script src="/js/jquery.scrolly.min.js"></script>
