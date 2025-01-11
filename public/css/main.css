@@ -187,6 +187,10 @@ input, select, textarea {
 		margin: 0 0 2rem 0;
 	}
 
+	.pCustom {
+		margin: 0;
+	}
+
 		p.major {
 			font-size: 1.25rem;
 		}

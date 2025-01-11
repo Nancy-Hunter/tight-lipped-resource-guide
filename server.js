@@ -35,6 +35,11 @@ resourcesSpreadsheet.parse().then( data => {
     resourcesDB.push(data)
 })
 
+const mentalHealthSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, mentalHealthResources)
+mentalHealthSpreadsheet.parse().then( data => {
+    mentalHealthResourcesDB.push(data)
+})
+
 //to complile into one database. However having issues load in sequence
 // const database = []
 // function parseSpreadsheet (spreadsheetID, options) {
@@ -73,6 +78,11 @@ app.get("/providers", (req,res) =>{
     });
 app.get("/generalInfo", (req,res) =>{
         res.render("generalInfo.ejs", { resourcesDB: resourcesDB.flat() });
+    });
+app.get("/support", (req,res) =>{
+        res.render("support.ejs", { 
+            resourcesDB: resourcesDB.flat(), 
+            mentalHealthResourcesDB: mentalHealthResourcesDB.flat() });
     });
 
 app.listen(process.env.PORT, ()=>{

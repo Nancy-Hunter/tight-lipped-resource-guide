@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tight Lipped Resource Guide</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<section class="spotlight style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<a href= '/'>
+                                <h2>Tight Lipped Resource Guide</h2>
+                            </a>
+						</div>
+						<div class="image">
+							<img src="images/banner.jpg" alt="" />
+						</div>
+					</section>
+
+			
+
+				<!-- Five -->
+					<section class="wrapper style1 align-center">
+						<div class="inner">
+							<h1>Find Support and Community</h1>
+							<p><%= resourcesDB[resourcesDB.length-1]['General Info about Vulvovaginal and Pelvic Pain Conditions']%></p>
+							<h2>Support Groups</h2>
+                            <ul class="actions stacked">
+								<% for(let i = 0; i<resourcesDB.length-1; i++) { %>
+									<% if (resourcesDB[i]['Support Groups']) { %>
+										<li>
+											<a href="<%= resourcesDB[i]['support group link']%>" class="button btnCustom" target="_blank"><%= resourcesDB[i]['Support Groups']%></a>
+											<% if (resourcesDB[i]['support group notes']) { %>
+												<p><%= resourcesDB[i]['support group notes']%></p>
+											<% } %>
+										</li> 
+									<% } %>
+								<% } %>
+							</ul>
+							<h2>Facebook Support Groups</h2>
+                            <ul class="actions stacked">
+								<% for(let i = 0; i<resourcesDB.length-1; i++) { %>
+									<% if (resourcesDB[i]['Facebook Support Groups']) { %>
+										<li>
+											<a href="<%= resourcesDB[i]['fb link']%>" class="button btnCustom" target="_blank"><%= resourcesDB[i]['Facebook Support Groups']%></a>
+											<% if (resourcesDB[i]['fb notes']) { %>
+												<p><%= resourcesDB[i]['support group notes']%></p>
+											<% } %>
+										</li> 
+									<% } %>
+								<% } %>
+							</ul>
+							<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+								<div class="content">
+									<h2>Find a Therapist</h2>
+                            		<ul class="actions stacked">
+									<% for(let i = 0; i<mentalHealthResourcesDB.length-1; i++) { %>
+										<% if (mentalHealthResourcesDB[i]['Finding a Therapist']) { %>
+											<li>
+											<a href="<%= mentalHealthResourcesDB[i]['therapist link']%>" class="button" target="_blank"><%= mentalHealthResourcesDB[i]['Finding a Therapist']%></a>
+												<% if (mentalHealthResourcesDB[i]['therapist notes']) { %>
+													<p><%= mentalHealthResourcesDB[i]['therapist notes']%></p>
+												<% } %>
+											</li> 
+									<% } %>
+								<% } %>
+							</ul>
+								</div>
+								<div class="image">
+									<img src="images/spotlight02.jpg" alt="" />
+								</div>
+							</section>
+							<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+								<div class="content">
+									<h2>Sex Therapy Referral Directories</h2>
+                            		<ul class="actions stacked">
+									<% for(let i = 0; i<mentalHealthResourcesDB.length-1; i++) { %>
+										<% if (mentalHealthResourcesDB[i]['Sex Therapy Referral Directories']) { %>
+											<li>
+											<a href="<%= mentalHealthResourcesDB[i]['sex therapy link']%>" class="button" target="_blank"><%= mentalHealthResourcesDB[i]['Sex Therapy Referral Directories']%></a>
+												<% if (mentalHealthResourcesDB[i]['sex therapy notes']) { %>
+													<p><%= mentalHealthResourcesDB[i]['therapist notes']%></p>
+												<% } %>
+											</li> 
+									<% } %>
+								<% } %>
+							</ul>
+								</div>
+								<div class="image">
+									<img src="images/spotlight03.jpg" alt="" />
+								</div>
+							</section>
+							<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="first">
+								<div class="content">
+									<h2>General Mental Health Resources</h2>
+									<ul class="actions stacked">
+										<% for(let i = 0; i<mentalHealthResourcesDB.length-1; i++) { %>
+											<% if (mentalHealthResourcesDB[i]['General Mental Health Resources'] && mentalHealthResourcesDB[i]['Phone Number'][0]!= 'h') { %>
+												<li>
+													<p class="pCustom"><%= mentalHealthResourcesDB[i]['General Mental Health Resources']%></p>
+													<span><%= mentalHealthResourcesDB[i]['Phone Number']%></span>
+												</li> 
+											<% } %>
+											<% if (mentalHealthResourcesDB[i]['General Mental Health Resources'] && mentalHealthResourcesDB[i]['Phone Number'][0]== 'h') { %>
+												<li>
+													<a href="<%= mentalHealthResourcesDB[i]['Phone Number']%>" class="button" target="_blank"><%= mentalHealthResourcesDB[i]['General Mental Health Resources']%></a>
+												</li> 
+											<% } %>
+										<% } %>
+									</ul>
+								</div>
+								<div class="image">
+									<img src="images/spotlight01.jpg" alt="" />
+								</div>
+							</section>
+							
+                        </div>
+				
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://x.com/tightlippedorg" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="https://www.facebook.com/tightlippedorg/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="https://www.instagram.com/tightlippedorg/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="https://www.linkedin.com/company/tight-lipped/" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="info@tightlipped.org" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>Programming: Nancy Hunter. Design: @ajlkn HTML5 UP</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script src="/js/jquery.scrolly.min.js"></script>
+			<script src="/js/browser.min.js"></script>
+			<script src="/js/breakpoints.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>
