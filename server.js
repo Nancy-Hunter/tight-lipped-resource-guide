@@ -6,9 +6,9 @@ const aboutTightLippedDB = []
 const findAProviderDB = []
 const resourcesDB = []
 const conditionsDB = []
-const connectionXConditionDB = []
+const connectionDB = []
 const mentalHealthResourcesDB = []
-const supplementalHealthcareResourcesDB = []
+const supplementalHealthcareDB = []
 
 const TightLippedID= '1Gt8w6KYMYxjsg6lbY8QpVqkQtZfbPQtIpbAXlAAMMKA'
 
@@ -16,9 +16,9 @@ const aboutTightLipped = { sheetName: 'About Tight Lipped'}
 const findAProvider = { sheetName: 'Find a Provider'}
 const resources = { sheetName: 'Resources'}
 const conditions = { sheetName: 'Conditions'}
-const connectionXCondition = { sheetName: 'Connection x Condition'}
+const connection = { sheetName: 'Connection x Condition'}
 const mentalHealthResources = { sheetName: 'Mental Health Resources'}
-const supplementalHealthcareResources = { sheetName: 'Supplemental Healthcare Resources'}
+const supplementalHealth = { sheetName: 'Supplemental Healthcare Resources'}
 
 const aboutSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, aboutTightLipped)
 aboutSpreadsheet.parse().then( data => {
@@ -38,6 +38,11 @@ resourcesSpreadsheet.parse().then( data => {
 const mentalHealthSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, mentalHealthResources)
 mentalHealthSpreadsheet.parse().then( data => {
     mentalHealthResourcesDB.push(data)
+})
+
+const connectionSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, connection)
+connectionSpreadsheet.parse().then( data => {
+    connectionDB.push(data)
 })
 
 //to complile into one database. However having issues load in sequence
@@ -71,7 +76,10 @@ app.use(express.static("./public"));
 app.get("/", (req,res) =>{
         res.render("index.ejs", { 
             aboutTightLippedDB: aboutTightLippedDB.flat(), findAProviderDB:findAProviderDB.flat(),
-            resourcesDB: resourcesDB.flat(), });
+            resourcesDB: resourcesDB.flat(),
+            connectionDB : connectionDB.flat(),
+         });
+            
     });
 app.get("/providers", (req,res) =>{
         res.render("providers.ejs", { findAProviderDB:findAProviderDB.flat() });

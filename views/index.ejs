@@ -376,7 +376,15 @@
 					<section class="wrapper style1 align-center">
 						<div class="inner medium">
 							<h2>Get in touch</h2>
-							<form method="post" action="#">
+							<p>If you would like to connect one on one with another community member who has been diagnosed with your condition we can connect you to someone in our community. Please be respectful of our community members' time. Each of them has volunteered their time as a resource and support for other patients with the conditions listed below.</p>
+							<ul class="actions stacked">
+								<% for(let i = 0; i<connectionDB.length-1; i++) { %>
+									<li>
+										<p class="pCustom"><%= connectionDB[i]['Conditions with Volunteers']%></p>
+									</li>
+								<% } %>
+							</ul>
+							<form method="post" action="https://formspree.io/f/mgvvrnob">
 								<div class="fields">
 									<div class="field half">
 										<label for="name">Name</label>
@@ -409,7 +417,7 @@
 								<li><a href="https://www.linkedin.com/company/tight-lipped/" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 								<li><a href="info@tightlipped.org" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
-							<p>Programming: Nancy Hunter. Design: @ajlkn HTML5 UP</p>
+							<a href = 'https://nancy-hunter.netlify.app/ target = 'blank'>Programming: Nancy Hunter. Design: @ajlkn HTML5 UP</a>
 						</div>
 					</footer>
 
