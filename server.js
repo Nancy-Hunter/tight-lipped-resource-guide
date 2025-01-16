@@ -21,7 +21,7 @@ const mentalHealthResources = { sheetName: 'Mental Health Resources'}
 const supplementalHealth = { sheetName: 'Supplemental Healthcare Resources'}
 
 const aboutSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, aboutTightLipped)
-aboutSpreadsheet.parse().then( data => {
+aboutSpreadsheet.parse().then( data => {  
     aboutTightLippedDB.push(data)
 })
 
