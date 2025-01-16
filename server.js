@@ -1,3 +1,4 @@
+const { parse } = require("dotenv");
 const express = require("express");
 const app = express();
 const PublicGoogleSheetsParser = require('public-google-sheets-parser')
@@ -20,40 +21,29 @@ const connection = { sheetName: 'Connection x Condition'}
 const mentalHealthResources = { sheetName: 'Mental Health Resources'}
 const supplementalHealth = { sheetName: 'Supplemental Healthcare Resources'}
 
-const aboutSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, aboutTightLipped)
-aboutSpreadsheet.parse().then( data => {  
-    aboutTightLippedDB.push(data)
-})
+function parseSpreadsheet (spreadsheetID, options, DB) {
+    const spreadsheet = new PublicGoogleSheetsParser(spreadsheetID, options)
+    spreadsheet.parse().then( data => {
+        DB.push(data)
+    })
+}
+async function parseFiles () {
+    parseSpreadsheet(TightLippedID, aboutTightLipped, aboutTightLippedDB)
+    parseSpreadsheet(TightLippedID, findAProvider, findAProviderDB)
+    parseSpreadsheet(TightLippedID, resources, resourcesDB)
+    parseSpreadsheet(TightLippedID, mentalHealthResources, mentalHealthResourcesDB)
+    parseSpreadsheet(TightLippedID, connection, connectionDB)
+    parseSpreadsheet(TightLippedID, supplementalHealth, supplementalHealthcareDB)
+}
+parseFiles()
 
-const findAProviderSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, findAProvider)
-findAProviderSpreadsheet.parse().then( data => {
-    findAProviderDB.push(data)
-})
 
-const resourcesSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, resources)
-resourcesSpreadsheet.parse().then( data => {
-    resourcesDB.push(data)
-})
 
-const mentalHealthSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, mentalHealthResources)
-mentalHealthSpreadsheet.parse().then( data => {
-    mentalHealthResourcesDB.push(data)
-})
 
-const connectionSpreadsheet = new PublicGoogleSheetsParser(TightLippedID, connection)
-connectionSpreadsheet.parse().then( data => {
-    connectionDB.push(data)
-})
 
-//to complile into one database. However having issues load in sequence
-// const database = []
-// function parseSpreadsheet (spreadsheetID, options) {
-//     const spreadsheet = new PublicGoogleSheetsParser(spreadsheetID, options)
-//     spreadsheet.parse().then( data => {
-//         database.push(data)
-//         console.log(data)
-//     })
-// }
+
+
+
 
 // let googleSheets = [aboutTightLipped, findAProvider, resources, conditions, connectionXCondition, mentalHealthResources, supplementalHealthcareResources]
 // async function readFiles (files) {
