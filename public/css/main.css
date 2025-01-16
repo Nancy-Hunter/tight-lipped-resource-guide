@@ -7715,6 +7715,10 @@ input, select, textarea {
 		}
 
 		@media screen and (max-width: 980px) {
+			.items.style1.big > * {
+				border-width: 0 0 1px 0;
+				width: 100%;
+			}
 
 			.items.style1.medium > *:nth-child(-n + 3) {
 				border-top-width: 1px;
