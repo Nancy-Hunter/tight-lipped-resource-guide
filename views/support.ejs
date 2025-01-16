@@ -12,7 +12,7 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
 
-				<!-- One -->
+				<!-- header -->
 					<section class="spotlight style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 						<div class="content">
 							<a href= '/'>
@@ -26,7 +26,7 @@
 
 			
 
-				<!-- Five -->
+				<!-- support and community -->
 					<section class="wrapper style1 align-center">
 						<div class="inner">
 							<h1>Find Support and Community</h1>
@@ -89,9 +89,19 @@
 													<p><%= mentalHealthResourcesDB[i]['therapist notes']%></p>
 												<% } %>
 											</li> 
+										<% } %>
 									<% } %>
-								<% } %>
-							</ul>
+									</ul>
+									<h2>Dating App for those with Sexual Limitations</h2>
+                            		<ul class="actions stacked">
+									<% for(let i = 0; i<resourcesDB.length-1; i++) { %>
+										<% if (resourcesDB[i]['Dating App for those with sexual limitations']) { %>
+											<li>
+											<a href="<%= resourcesDB[i]['dating app link']%>" class="button" target="_blank"><%= resourcesDB[i]['Dating App for those with sexual limitations']%></a>
+											</li> 
+										<% } %>
+									<% } %>
+									</ul>
 								</div>
 								<div class="image">
 									<img src="images/spotlight03.jpg" alt="" />

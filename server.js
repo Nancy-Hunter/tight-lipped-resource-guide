@@ -37,23 +37,6 @@ async function parseFiles () {
 }
 parseFiles()
 
-
-
-
-
-
-
-
-
-// let googleSheets = [aboutTightLipped, findAProvider, resources, conditions, connectionXCondition, mentalHealthResources, supplementalHealthcareResources]
-// async function readFiles (files) {
-//     for (let file of files) {
-//         await parseSpreadsheet(TightLippedID, file)
-//     }
-// }
-// readFiles(googleSheets)
-
-
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
@@ -68,6 +51,7 @@ app.get("/", (req,res) =>{
             aboutTightLippedDB: aboutTightLippedDB.flat(), findAProviderDB:findAProviderDB.flat(),
             resourcesDB: resourcesDB.flat(),
             connectionDB : connectionDB.flat(),
+            supplementalHealthcareDB : supplementalHealthcareDB.flat()
          });
             
     });
@@ -82,7 +66,13 @@ app.get("/support", (req,res) =>{
             resourcesDB: resourcesDB.flat(), 
             mentalHealthResourcesDB: mentalHealthResourcesDB.flat() });
     });
-
+app.get("/supplementalResources", (req,res) =>{
+        res.render("supplementalResources.ejs", { 
+            resourcesDB: resourcesDB.flat(),
+            supplementalHealthcareDB : supplementalHealthcareDB.flat()
+         });
+            
+    });
 app.listen(process.env.PORT, ()=>{
     console.log(`Listening...`);
 });

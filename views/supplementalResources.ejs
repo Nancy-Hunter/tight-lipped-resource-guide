@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Tight Lipped Resource Guide</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper" class="divided">
+			<!-- header -->
+			<section class="spotlight style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+				<div class="content">
+					<a href= '/'>
+                    	<h2>Tight Lipped Resource Guide</h2>
+                	</a>
+				</div>
+				<div class="image">
+					<img src="images/banner.jpg" alt="" />
+				</div>
+			</section>
+					
+			<!-- supplemental healthcare -->
+			<section class="wrapper style1 align-center">
+				<div class="inner">
+					<h1>Supplemental Healthcare Resources</h1>
+					<p><%= supplementalHealthcareDB[supplementalHealthcareDB.length-1]['Product/Service']%></p>
+                    <ul class="actions stacked">
+						<% for(let i = 0; i<supplementalHealthcareDB.length-1; i++) { %>
+							<% if (supplementalHealthcareDB[i]['Product/Service']) { %>
+								<li>
+									<a href="<%= supplementalHealthcareDB[i]['product link']%>" class="button btnCustom" target="_blank"><%= supplementalHealthcareDB[i]['Product/Service']%></a>
+									<% if (supplementalHealthcareDB[i]['Notes']) { %>
+										<p  class= 'pCustom'><%= supplementalHealthcareDB[i]['Notes']%></p>
+									<% } %>
+									<% if (supplementalHealthcareDB[i]['Discount Code']) { %>
+										<p  class= 'pCustom'>Discount Code: <%= supplementalHealthcareDB[i]['Discount Code']%></p>
+									<% } %>
+								</li> 
+							<% } %>
+						<% } %>
+					</ul>
+				</div>
+			</section>
+
+			<!-- period products	 -->
+			<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>Period Products</h2>
+                    <ul class="actions stacked">
+						<% for(let i = 0; i<resourcesDB.length-1; i++) { %>
+							<% if (resourcesDB[i]['Period Products']) { %>
+								<li>
+									<a href="<%= resourcesDB[i]['period product link']%>" class="button btnCustom" target="_blank"><%= resourcesDB[i]['Period Products']%></a>
+									<% if (resourcesDB[i]['period product notes']) { %>
+										<p  class= 'pCustom'><%= resourcesDB[i]['period product notes']%></p>
+									<% } %>
+								</li> 
+							<% } %>
+						<% } %>
+					</ul>
+				</div>
+				<div class="image">
+					<img src="images/spotlight02.jpg" alt="" />
+				</div>
+			</section>
+			<!-- books -->
+			<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+				<div class="content">
+					<h2>Books</h2>
+                    <ul class="actions stacked">
+						<% for(let i = 0; i<resourcesDB.length-1; i++) { %>
+							<% if (resourcesDB[i]['Books']) { %>
+								<li>
+									<a href="<%= resourcesDB[i]['book link']%>" class="button btnCustom" target="_blank"><%= resourcesDB[i]['Books']%></a>
+									<% if (resourcesDB[i]['book notes']) { %>
+										<p  class= 'pCustom'><%= resourcesDB[i]['book notes']%></p>
+									<% } %>
+								</li> 
+							<% } %>
+						<% } %>
+					</ul>
+				</div>
+				<div class="image">
+					<img src="images/spotlight03.jpg" alt="" />
+				</div>
+			</section>
+				
+                        
+				
+
+			<!-- Footer -->
+			<footer class="wrapper style1 align-center">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://x.com/tightlippedorg" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/tightlippedorg/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/tightlippedorg/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.linkedin.com/company/tight-lipped/" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="info@tightlipped.org" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<a href = 'https://nancy-hunter.netlify.app/ target = 'blank'>Programming: Nancy Hunter. Design: @ajlkn HTML5 UP</a>
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script src="/js/jquery.scrolly.min.js"></script>
+			<script src="/js/browser.min.js"></script>
+			<script src="/js/breakpoints.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>
