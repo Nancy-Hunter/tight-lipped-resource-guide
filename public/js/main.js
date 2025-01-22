@@ -336,8 +336,23 @@
 
 })(jQuery);
 
+// set up for nav bar toggle 
+const navToggle = document.querySelector("#menuToggle")
+const menu = document.querySelector("#navMenu")
 
+navToggle.addEventListener('click', toggleDisplay)
 
+function toggleDisplay(event) {
+    const clicked = event.target
+    clicked.style.display='none'
+	clicked.nextElementSibling.style.display='block'
+}
 
+document.addEventListener('click', function(event) {
+	if(menu.style.display=='block' && !event.target.isEqualNode(navToggle) && !event.target.isEqualNode(menu) && !menu.contains(event.target)) {
+		menu.style.display='none'
+		navToggle.style.display='block'
+	}
+  });
 
 
