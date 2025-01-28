@@ -1,4 +1,6 @@
+
 # Tight Lipped Resource Guide
+
 Responsive resource Guide for the non-profit Tight Lipped. Designed to be easily updated directly by the client using a google spreadsheet. 
 
 Tight Lipped is a grassroots advocacy organization by and for people with chronic vulvovaginal and pelvic pain conditions.
